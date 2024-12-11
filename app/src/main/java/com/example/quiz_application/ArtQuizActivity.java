@@ -24,7 +24,16 @@ public class ArtQuizActivity extends AppCompatActivity {
             new Question("Qui a peint la Mona Lisa ?", new String[]{"Vincent van Gogh", "Pablo Picasso", "Léonard de Vinci", "Claude Monet"}, 2),
             new Question("Quel est le courant artistique de 'La Nuit étoilée' ?", new String[]{"Impressionnisme", "Cubisme", "Réalisme", "Post-impressionnisme"}, 3),
             new Question("Quel peintre a utilisé la technique du 'Pointillisme' ?", new String[]{"Georges Seurat", "Claude Monet", "Henri Matisse", "Pierre-Auguste Renoir"}, 0),
-            // Ajoutez d'autres questions pour le domaine Art
+            new Question("Qui a peint 'Les Demoiselles d'Avignon' ?", new String[]{"Vincent van Gogh", "Pablo Picasso", "Léonard de Vinci", "Claude Monet"}, 1),
+            new Question("Quel mouvement artistique est associé à Salvador Dalí ?", new String[]{"Cubisme", "Surréalisme", "Impressionnisme", "Expressionnisme"}, 1),
+            new Question("Quel peintre est célèbre pour ses nénuphars ?", new String[]{"Paul Cézanne", "Vincent van Gogh", "Claude Monet", "Édouard Manet"}, 2),
+            new Question("Quel artiste a peint 'La naissance de Vénus' ?", new String[]{"Sandro Botticelli", "Michel-Ange", "Raphaël", "Donatello"}, 0),
+            new Question("Qui est l'auteur du tableau 'Le Cri' ?", new String[]{"Edvard Munch", "Gustav Klimt", "Egon Schiele", "Wassily Kandinsky"}, 0),
+            new Question("Dans quel musée se trouve 'La Joconde' ?", new String[]{"Musée du Prado", "Musée d'Orsay", "Louvre", "British Museum"}, 2),
+            new Question("Quel artiste est connu pour ses 'boîtes de soupe Campbell' ?", new String[]{"Andy Warhol", "Roy Lichtenstein", "Jean-Michel Basquiat", "Jasper Johns"}, 0),
+            new Question("Quelle technique artistique utilise des petits points de couleur pour créer une image ?", new String[]{"Cubisme", "Impressionnisme", "Pointillisme", "Surréalisme"}, 2),
+            new Question("Quel sculpteur est connu pour 'Le Penseur' ?", new String[]{"Auguste Rodin", "Henry Moore", "Constantin Brâncuși", "Alberto Giacometti"}, 0),
+            new Question("Qui a peint 'Guernica' ?", new String[]{"Salvador Dalí", "Pablo Picasso", "Joan Miró", "Henri Matisse"}, 1)
     };
 
     @Override
