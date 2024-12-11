@@ -21,10 +21,19 @@ public class CultureQuizActivity extends AppCompatActivity {
     private static final long TIME_PER_QUESTION = 30000; // 30 secondes par question
 
     private Question[] questions = {
-            new Question("Quel est le capital de la France ?", new String[]{"Berlin", "Paris", "Madrid", "Rome"}, 1),
+            new Question("Quelle est la capitale de la France ?", new String[]{"Berlin", "Paris", "Madrid", "Rome"}, 1),
             new Question("Qui a écrit 'Les Misérables' ?", new String[]{"Victor Hugo", "Molière", "Emile Zola", "Marcel Proust"}, 0),
             new Question("Quel est le plus grand musée du monde ?", new String[]{"Louvre", "Musée d'Orsay", "Prado", "Vatican Museums"}, 0),
-            // Ajoutez d'autres questions pour le domaine Culture
+            new Question("Quelle est la capitale de l'Italie ?", new String[]{"Berlin", "Paris", "Rome", "Madrid"}, 2),
+            new Question("Qui a peint la Joconde ?", new String[]{"Vincent Van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"}, 2),
+            new Question("Quelle est la langue officielle du Brésil ?", new String[]{"Espagnol", "Anglais", "Portugais", "Français"}, 2),
+            new Question("Qui a écrit 'Hamlet' ?", new String[]{"Charles Dickens", "William Shakespeare", "Mark Twain", "Jane Austen"}, 1),
+            new Question("Quel est le plus long fleuve du monde ?", new String[]{"Amazone", "Nil", "Yangtsé", "Mississippi"}, 0),
+            new Question("Quelle est la plus petite planète du système solaire ?", new String[]{"Mars", "Mercure", "Vénus", "Terre"}, 1),
+            new Question("Qui a écrit 'Le Seigneur des Anneaux' ?", new String[]{"J.K. Rowling", "J.R.R. Tolkien", "George R.R. Martin", "C.S. Lewis"}, 1),
+            new Question("Quelle est la monnaie utilisée au Japon ?", new String[]{"Dollar", "Euro", "Yen", "Yuan"}, 2),
+            new Question("Quel pays est connu comme le pays du soleil levant ?", new String[]{"Chine", "Japon", "Corée du Sud", "Thaïlande"}, 1),
+            new Question("Qui a découvert l'Amérique en 1492 ?", new String[]{"Christophe Colomb", "Amerigo Vespucci", "Ferdinand Magellan", "Marco Polo"}, 0),
     };
 
     @Override
