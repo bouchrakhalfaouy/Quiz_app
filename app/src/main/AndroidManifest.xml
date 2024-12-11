@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/quiz"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/quiz"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Quiz_Application"
+        tools:targetApi="31">
+        <activity
+            android:name=".header_layout"
+            android:exported="false" />
+        <activity
+            android:name=".ArtQuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CultureQuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ResultsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Question"
+            android:exported="false" />
+        <activity
+            android:name=".ScienceQuizActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Quiz_Application" /> <!-- Déclaration de l'écran d'authentification comme activité principale -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Quiz_Application">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Activité pour l'inscription -->
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Quiz_Application" /> <!-- Activité principale après connexion -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" /> <!-- Base de données (n'est pas une activité typique, à retirer si non nécessaire) -->
+        <activity
+            android:name=".database"
+            android:exported="false" />
+    </application>
+
+</manifest>
