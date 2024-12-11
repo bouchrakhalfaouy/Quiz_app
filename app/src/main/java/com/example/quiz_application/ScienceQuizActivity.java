@@ -7,13 +7,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ScienceQuizActivity extends AppCompatActivity {
 
     private TextView questionTextView, timerTextView;
-    private Button option1Button, option2Button, option3Button, option4Button, nextButton,logoutButton,homeButton;
+    private Button option1Button, option2Button, option3Button, option4Button, nextButton, logoutButton, homeButton;
 
     private Question[] questions;
     private int currentQuestionIndex = 0;
@@ -39,12 +38,18 @@ public class ScienceQuizActivity extends AppCompatActivity {
 
         // Initialiser les questions
         questions = new Question[]{
-                new Question("Quelle est la capitale de la France?", new String[]{"Paris", "Berlin", "Madrid", "Rome"}, 0),
-                new Question("Quel est l'élément chimique de symbole O?", new String[]{"Oxygène", "Ozone", "Or", "Osmium"}, 0),
-                new Question("Quel est le plus grand océan du monde?", new String[]{"Atlantique", "Indien", "Arctique", "Pacifique"}, 3),
-                new Question("Qui a écrit '1984'?", new String[]{"George Orwell", "J.K. Rowling", "Ernest Hemingway", "Mark Twain"}, 0),
-                new Question("Quel est l'animal terrestre le plus rapide?", new String[]{"Guépard", "Lion", "Tigre", "Éléphant"}, 0),
+                new Question("Quelle est la formule chimique de l'eau ?", new String[]{"H₂O", "CO₂", "NaCl", "O₂"}, 0),
+                new Question("Quel est l'organe principal du système respiratoire humain ?", new String[]{"Le cœur", "Les reins", "Les poumons", "L'estomac"}, 2),
+                new Question("Quelle planète est la plus proche du soleil ?", new String[]{"Mars", "Vénus", "Terre", "Mercure"}, 3),
+                new Question("Quelle est la vitesse de la lumière dans le vide ?", new String[]{"299 792 458 mètres par seconde", "150 000 000 mètres par seconde", "120 000 000 mètres par seconde", "1 000 000 mètres par seconde"}, 0),
+                new Question("Qui a proposé la théorie de la relativité ?", new String[]{"Isaac Newton", "Albert Einstein", "Nikola Tesla", "Galileo Galilei"}, 1),
+                new Question("Quel est l'élément chimique ayant pour symbole 'O' ?", new String[]{"Or", "Hydrogène", "Oxygène", "Azote"}, 2),
+                new Question("Quel est le plus grand organe du corps humain ?", new String[]{"Le foie", "Le cerveau", "La peau", "Les poumons"}, 2),
+                new Question("Quelle force attire les objets vers le centre de la Terre ?", new String[]{"La friction", "L'attraction magnétique", "La gravité", "La pression atmosphérique"}, 2),
+                new Question("Quelle est l'unité de mesure de la force dans le système international ?", new String[]{"Le kilogramme (kg)", "Le mètre (m)", "Le newton (N)", "Le joule (J)"}, 2),
+                new Question("Quelle est la principale source d'énergie pour la Terre ?", new String[]{"Le vent", "Le soleil", "L'eau", "Le pétrole"}, 1)
         };
+
         // Afficher la première question
         displayQuestion();
 
@@ -101,6 +106,7 @@ public class ScienceQuizActivity extends AppCompatActivity {
                 int secondsLeft = (int) (millisUntilFinished / 1000);
                 timerTextView.setText("Temps restant : " + secondsLeft + "s");
             }
+
             @Override
             public void onFinish() {
                 timerTextView.setText("Temps écoulé !");
