@@ -49,10 +49,8 @@ public class ScienceQuizActivity extends AppCompatActivity {
                 new Question("Quelle est l'unité de mesure de la force dans le système international ?", new String[]{"Le kilogramme (kg)", "Le mètre (m)", "Le newton (N)", "Le joule (J)"}, 2),
                 new Question("Quelle est la principale source d'énergie pour la Terre ?", new String[]{"Le vent", "Le soleil", "L'eau", "Le pétrole"}, 1)
         };
-
         // Afficher la première question
         displayQuestion();
-
         // Actions des boutons des options
         option1Button.setOnClickListener(view -> checkAnswer(0));
         option2Button.setOnClickListener(view -> checkAnswer(1));
