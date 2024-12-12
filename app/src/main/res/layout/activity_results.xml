@@ -1,33 +1,41 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:gravity="center"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/scoreTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Votre score: 0 / 10"
-        android:textSize="24sp"
-        android:textColor="#000000"
-        android:layout_marginBottom="20dp"/>
-
+    <!-- Barre circulaire -->
     <ProgressBar
-        android:id="@+id/scoreProgressBar"
+        android:id="@+id/circularProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:indeterminate="false"
         android:max="100"
         android:progress="0"
-        android:progressDrawable="@drawable/progress_circle"
-        android:layout_marginBottom="20dp"/>
+        android:progressDrawable="@drawable/progress_circle" />
 
+    <!-- Texte au centre de la barre -->
+    <TextView
+        android:id="@+id/percentageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0%"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_centerInParent="true"
+        android:textColor="#000000" />
+
+    <!-- Bouton pour revenir à l'accueil -->
     <Button
         android:id="@+id/exitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Retour à l'accueil"
+        android:layout_below="@id/circularProgressBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
         android:onClick="onExitButtonClick" />
-</LinearLayout>
+
+</RelativeLayout>

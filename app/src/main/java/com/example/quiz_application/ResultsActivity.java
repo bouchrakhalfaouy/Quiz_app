@@ -4,63 +4,62 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ResultsActivity extends AppCompatActivity {
 
-    private TextView scoreTextView;
-    private ProgressBar scoreProgressBar;
+    private ProgressBar circularProgressBar;
+    private TextView percentageTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
-        // Initialiser le TextView et la ProgressBar
-        scoreTextView = findViewById(R.id.scoreTextView);
-        scoreProgressBar = findViewById(R.id.scoreProgressBar);
+        // Initialisation des vues
+        circularProgressBar = findViewById(R.id.circularProgressBar);
+        percentageTextView = findViewById(R.id.percentageTextView);
+        Button exitButton = findViewById(R.id.exitButton);
 
-        // Récupérer le score et le nombre total de questions passées via l'Intent
+        // Récupération du score via l'intent
         Intent intent = getIntent();
-        int score = intent.getIntExtra("score", 0); // Valeur par défaut 0
-        int totalQuestions = intent.getIntExtra("totalQuestions", 0); // Valeur par défaut 0
+        int score = intent.getIntExtra("score", 0);
+        int totalQuestions = intent.getIntExtra("totalQuestions", 1); // Évite la division par 0
 
-        // Calculer le pourcentage de réponses correctes
+        // Calcul du pourcentage
         int percentage = (int) ((score / (float) totalQuestions) * 100);
 
-        // Afficher le score
-        scoreTextView.setText("Votre score: " + score + " / " + totalQuestions);
+        // Mise à jour de la barre circulaire et du texte
+        circularProgressBar.setProgress(percentage);
+        percentageTextView.setText(percentage + "%");
 
-        // Mettre à jour la ProgressBar avec le pourcentage
-        scoreProgressBar.setProgress(percentage);
-    }
-
-    public void onExitButtonClick(View view) {
-        Intent intent = new Intent(ResultsActivity.this, HomeActivity.class); // ou vers la page d'accueil si nécessaire
-        startActivity(intent);
-        finish(); // Fermer l'activité actuelle
+        // Gestion du bouton retour à l'accueil
+        exitButton.setOnClickListener(view -> {
+            Intent homeIntent = new Intent(ResultsActivity.this, HomeActivity.class);
+            startActivity(homeIntent);
+            finish();
+        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflater le menu à partir du fichier XML
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(android.view.MenuItem item) {
-        // Gérer les clics sur les options du menu
         if (item.getItemId() == R.id.menu_home) {
             Intent intent = new Intent(ResultsActivity.this, HomeActivity.class);
             startActivity(intent);
             finish();
             return true;
         } else if (item.getItemId() == R.id.menu_logout) {
-            // Action pour Déconnecter
             showToast("Déconnexion réussie");
             Intent intent = new Intent(ResultsActivity.this, LoginActivity.class);
             startActivity(intent);
