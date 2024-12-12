@@ -34,8 +34,6 @@ public class ScienceQuizActivity extends AppCompatActivity {
         option3Button = findViewById(R.id.option3Button);
         option4Button = findViewById(R.id.option4Button);
         nextButton = findViewById(R.id.nextQuestionButton);
-        logoutButton = findViewById(R.id.logoutButton);
-        homeButton = findViewById(R.id.homeButton);
 
         // Initialiser les questions
         questions = new Question[]{
@@ -60,20 +58,7 @@ public class ScienceQuizActivity extends AppCompatActivity {
 
         // Action pour le bouton suivant
         nextButton.setOnClickListener(view -> moveToNextQuestion());
-        // Action pour le bouton Déconnexion
-        logoutButton.setOnClickListener(view -> {
-            //showToast("Déconnexion réussie");
-            Intent intent = new Intent(ScienceQuizActivity.this, LoginActivity.class);
-            startActivity(intent);
-            finish();
-        });
 
-        // Action pour le bouton Accueil
-        homeButton.setOnClickListener(view -> {
-            Intent intent = new Intent(ScienceQuizActivity.this, HomeActivity.class);
-            startActivity(intent);
-            finish();
-        });
     }
 
     private void displayQuestion() {

@@ -50,8 +50,6 @@ public class CultureQuizActivity extends AppCompatActivity {
         option3Button = findViewById(R.id.option3Button);
         option4Button = findViewById(R.id.option4Button);
         nextButton = findViewById(R.id.nextButton);
-        logoutButton = findViewById(R.id.logoutButton);
-        homeButton = findViewById(R.id.homeButton);
 
         // Afficher la première question
         displayQuestion();
@@ -65,20 +63,6 @@ public class CultureQuizActivity extends AppCompatActivity {
         // Passer à la question suivante
         nextButton.setOnClickListener(view -> moveToNextQuestion());
 
-        // Action pour le bouton Déconnexion
-        logoutButton.setOnClickListener(view -> {
-            //showToast("Déconnexion réussie");
-            Intent intent = new Intent(CultureQuizActivity.this, LoginActivity.class);
-            startActivity(intent);
-            finish();
-        });
-
-        // Action pour le bouton Accueil
-        homeButton.setOnClickListener(view -> {
-            Intent intent = new Intent(CultureQuizActivity.this, HomeActivity.class);
-            startActivity(intent);
-            finish();
-        });
     }
 
     private void displayQuestion() {

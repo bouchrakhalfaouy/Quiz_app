@@ -50,8 +50,7 @@ public class ArtQuizActivity extends AppCompatActivity {
         option3Button = findViewById(R.id.option3Button);
         option4Button = findViewById(R.id.option4Button);
         nextButton = findViewById(R.id.nextButton);
-        logoutButton = findViewById(R.id.logoutButton);
-        homeButton = findViewById(R.id.homeButton);
+
 
         // Afficher la première question
         displayQuestion();
@@ -64,21 +63,6 @@ public class ArtQuizActivity extends AppCompatActivity {
 
         // Passer à la question suivante
         nextButton.setOnClickListener(view -> goToNextQuestion());
-
-        // Action pour le bouton Déconnexion
-        logoutButton.setOnClickListener(view -> {
-            //showToast("Déconnexion réussie");
-            Intent intent = new Intent(ArtQuizActivity.this, LoginActivity.class);
-            startActivity(intent);
-            finish();
-        });
-
-        // Action pour le bouton Accueil
-        homeButton.setOnClickListener(view -> {
-            Intent intent = new Intent(ArtQuizActivity.this, HomeActivity.class);
-            startActivity(intent);
-            finish();
-        });
     }
 
     private void displayQuestion() {

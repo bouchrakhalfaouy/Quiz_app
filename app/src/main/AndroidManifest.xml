@@ -26,9 +26,6 @@
 
         <!-- Autres activités -->
         <activity
-            android:name=".header_layout"
-            android:exported="false" />
-        <activity
             android:name=".ArtQuizActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
             android:exported="false" />
