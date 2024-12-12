@@ -12,6 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Quiz_Application"
         tools:targetApi="31">
+
+        <!-- MainActivity (Activité principale qui se lance au démarrage) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Quiz_Application">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Autres activités -->
         <activity
             android:name=".header_layout"
             android:exported="false" />
@@ -33,27 +46,17 @@
         <activity
             android:name=".HomeActivity"
             android:exported="false"
-            android:theme="@style/Theme.Quiz_Application" /> <!-- Déclaration de l'écran d'authentification comme activité principale -->
+            android:theme="@style/Theme.Quiz_Application" />
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:theme="@style/Theme.Quiz_Application">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> <!-- Activité pour l'inscription -->
+            android:theme="@style/Theme.Quiz_Application" />
         <activity
             android:name=".RegisterActivity"
             android:exported="false"
-            android:theme="@style/Theme.Quiz_Application" /> <!-- Activité principale après connexion -->
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" /> <!-- Base de données (n'est pas une activité typique, à retirer si non nécessaire) -->
+            android:theme="@style/Theme.Quiz_Application" />
         <activity
             android:name=".database"
             android:exported="false" />
     </application>
-
 </manifest>
