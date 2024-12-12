@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:background="@drawable/quizimg"
     android:padding="16dp">
 
     <com.mikhaellopez.circularprogressbar.CircularProgressBar
