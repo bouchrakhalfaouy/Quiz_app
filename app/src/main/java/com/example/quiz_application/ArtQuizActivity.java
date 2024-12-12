@@ -103,34 +103,62 @@ public class ArtQuizActivity extends AppCompatActivity {
         if (timer != null) {
             timer.cancel();
         }
-        Question currentQuestion = questions[currentQuestionIndex];
 
+        Question currentQuestion = questions[currentQuestionIndex];
+        Button selectedButton = null;
+
+        // Vérifier la bonne réponse
         if (selectedOption == currentQuestion.getCorrectAnswerIndex()) {
             score++; // Incrémenter le score si la réponse est correcte
             Toast.makeText(this, "Bonne réponse!", Toast.LENGTH_SHORT).show();
+            selectedButton = getButtonForOption(selectedOption);
+            selectedButton.setBackgroundColor(getResources().getColor(R.color.green)); // Vert
         } else {
-            Toast.makeText(this, "Mauvaise réponse. La bonne réponse est : " + currentQuestion.getOptions()[currentQuestion.getCorrectAnswerIndex()], Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Mauvaise réponse. La bonne réponse est : " +
+                    currentQuestion.getOptions()[currentQuestion.getCorrectAnswerIndex()], Toast.LENGTH_LONG).show();
+            selectedButton = getButtonForOption(selectedOption);
+            selectedButton.setBackgroundColor(getResources().getColor(R.color.red)); // Rouge
+
+            // Mettre en vert le bouton de la bonne réponse
+            Button correctButton = getButtonForOption(currentQuestion.getCorrectAnswerIndex());
+            correctButton.setBackgroundColor(getResources().getColor(R.color.green)); // Vert
         }
+        // Désactiver les boutons après la réponse
         disableAnswerButtons();
+    }
+
+    private Button getButtonForOption(int optionIndex) {
+        switch (optionIndex) {
+            case 0:
+                return option1Button;
+            case 1:
+                return option2Button;
+            case 2:
+                return option3Button;
+            case 3:
+                return option4Button;
+            default:
+                return null;
+        }
     }
 
     private void goToNextQuestion() {
         if (timer != null) {
             timer.cancel();
         }
+        // Réinitialiser les couleurs des boutons avant de passer à la question suivante
+        resetButtonColors();
 
-        if (currentQuestionIndex < questions.length - 1) {
-            currentQuestionIndex++;
-            enableAnswerButtons();
-            displayQuestion();
-        } else {
-            // Si toutes les questions sont terminées, afficher le score
-            Intent intent = new Intent(ArtQuizActivity.this, ResultsActivity.class);
-            intent.putExtra("score", score);
-            intent.putExtra("totalQuestions", questions.length);
-            startActivity(intent);
-            finish();
-        }
+        currentQuestionIndex++;
+        enableAnswerButtons();
+        displayQuestion();
+    }
+    private void resetButtonColors() {
+        // Réinitialiser la couleur de fond des boutons à la couleur par défaut (transparente ou autre couleur)
+        option1Button.setBackgroundColor(getResources().getColor(android.R.color.darker_gray)); // ou utilisez la couleur par défaut
+        option2Button.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
+        option3Button.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
+        option4Button.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
     }
     private void disableAnswerButtons() {
         option1Button.setEnabled(false);

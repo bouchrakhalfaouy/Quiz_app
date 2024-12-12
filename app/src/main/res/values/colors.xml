@@ -10,4 +10,6 @@
     <color name="mycolor4">#DB6A8F</color>
     <color name="mycolor5">#F9968B</color>
     <color name="mycolor6">#F27438</color>
+    <color name="red">#F44336</color>
+    <color name="green">#4CAF50</color>
 </resources>
