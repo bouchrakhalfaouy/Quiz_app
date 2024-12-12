@@ -16,12 +16,6 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
-
         // Boutons des domaines
         scienceButton = findViewById(R.id.scienceButton);
         cultureButton = findViewById(R.id.cultureButton);

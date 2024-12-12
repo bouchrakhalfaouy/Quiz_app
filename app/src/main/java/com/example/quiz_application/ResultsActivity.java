@@ -2,9 +2,11 @@ package com.example.quiz_application;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import android.widget.Toast;
 
 public class ResultsActivity extends AppCompatActivity {
 
@@ -30,5 +32,34 @@ public class ResultsActivity extends AppCompatActivity {
         Intent intent = new Intent(ResultsActivity.this, HomeActivity.class); // ou vers la page d'accueil si nécessaire
         startActivity(intent);
         finish(); // Fermer l'activité actuelle
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflater le menu à partir du fichier XML
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
+        // Gérer les clics sur les options du menu
+        if (item.getItemId() == R.id.menu_home) {
+            Intent intent = new Intent(ResultsActivity.this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
+        } else if (item.getItemId() == R.id.menu_logout) {
+            // Action pour Déconnecter
+            showToast("Déconnexion réussie");
+            Intent intent = new Intent(ResultsActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

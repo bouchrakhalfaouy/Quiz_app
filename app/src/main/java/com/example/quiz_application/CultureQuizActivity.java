@@ -3,6 +3,7 @@ package com.example.quiz_application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.view.Menu;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -160,5 +161,34 @@ public class CultureQuizActivity extends AppCompatActivity {
         option2Button.setEnabled(true);
         option3Button.setEnabled(true);
         option4Button.setEnabled(true);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflater le menu à partir du fichier XML
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
+        // Gérer les clics sur les options du menu
+        if (item.getItemId() == R.id.menu_home) {
+            Intent intent = new Intent(CultureQuizActivity.this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
+        } else if (item.getItemId() == R.id.menu_logout) {
+            // Action pour Déconnecter
+            showToast("Déconnexion réussie");
+            Intent intent = new Intent(CultureQuizActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }
