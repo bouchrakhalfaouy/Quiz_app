@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Créer un compte"
-        android:textColor="#FFEB3B"
+        android:textColor="#0000FF"
         android:textStyle="bold"
         android:paddingTop="16dp"
         android:clickable="true"
