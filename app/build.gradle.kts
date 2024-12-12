@@ -45,4 +45,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    // Ajout de la dépendance pour CircularProgressBar
+    implementation ("com.github.anastr:android-device-info:1.1.2")
+    implementation ("com.github.anastr:speedviewlib:1.1.0")
 }

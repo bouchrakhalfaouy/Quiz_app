@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <?xml version="1.0" encoding="utf-8"?>
+    <shape xmlns:android="http://schemas.android.com/apk/res/android">
+        <solid android:color="#E0E0E0"/> <!-- Couleur de fond de la ProgressBar -->
+        <corners android:radius="100dp"/> <!-- Bordure arrondie pour créer l'effet circulaire -->
+        <size android:width="200dp" android:height="200dp"/> <!-- Taille de la ProgressBar -->
+        <gradient
+            android:startColor="#4CAF50"
+            android:endColor="#8BC34A"
+            android:angle="0"/>
+    </shape>
+</selector>
