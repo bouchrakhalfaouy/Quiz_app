@@ -100,6 +100,9 @@ public class ArtQuizActivity extends AppCompatActivity {
     }
 
     private void checkAnswer(int selectedOption) {
+        if (timer != null) {
+            timer.cancel();
+        }
         Question currentQuestion = questions[currentQuestionIndex];
 
         if (selectedOption == currentQuestion.getCorrectAnswerIndex()) {

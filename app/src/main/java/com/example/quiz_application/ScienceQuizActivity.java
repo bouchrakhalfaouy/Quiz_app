@@ -100,6 +100,9 @@ public class ScienceQuizActivity extends AppCompatActivity {
     }
 
     private void checkAnswer(int selectedOption) {
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
         Question currentQuestion = questions[currentQuestionIndex];
 
         if (selectedOption == currentQuestion.getCorrectAnswerIndex()) {
