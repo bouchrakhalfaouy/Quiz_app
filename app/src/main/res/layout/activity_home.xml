@@ -7,124 +7,123 @@
     android:background="@color/myColor1"
     android:padding="16dp">
 
-    <!-- Header inclus  -->
-<!--<include layout="@layout/activity_header_layout" />-->
-
     <!-- Description -->
-<TextView
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:text="Bienvenue dans l'application Quiz !"
-android:textSize="20sp"
-android:textColor="@android:color/white"
-android:gravity="center"
-android:layout_marginBottom="16dp"
-android:textStyle="bold" />
-
-<TextView
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:text="Testez vos connaissances dans divers domaines !"
-android:textSize="16sp"
-android:textColor="@android:color/white"
-android:gravity="center"
-android:layout_marginBottom="24dp" />
-
-<LinearLayout
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:orientation="horizontal"
-android:gravity="center"
-android:layout_marginTop="16dp"
-android:weightSum="3">
-
-<!-- ImageButton pour Science -->
-<LinearLayout
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="8dp">
-
-    <ImageButton
-        android:id="@+id/scienceButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/science"
-        android:background="@drawable/rounded_button_background"
-        android:contentDescription="Science"
-        android:layout_marginBottom="8dp"
-        android:elevation="4dp"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bienvenue dans l'application Quiz !"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"
+        android:textStyle="bold" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Science"
-        android:textSize="14sp"
+        android:text="Testez vos connaissances dans divers domaines !"
+        android:textSize="16sp"
         android:textColor="@android:color/white"
-        android:gravity="center" />
-</LinearLayout>
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
 
-<!-- ImageButton pour Culture -->
-<LinearLayout
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="8dp">
-
-    <ImageButton
-        android:id="@+id/cultureButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/culture"
-        android:background="@drawable/rounded_button_background"
-        android:contentDescription="Culture"
-        android:layout_marginBottom="8dp"
-        android:elevation="4dp"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- Boutons pour accéder aux quiz -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Culture"
-        android:textSize="14sp"
-        android:textColor="@android:color/white"
-        android:gravity="center" />
-</LinearLayout>
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:weightSum="3">
 
-<LinearLayout
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="8dp">
+        <!-- ImageButton pour Science -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
 
-    <ImageButton
-        android:id="@+id/artButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/art"
-        android:background="@drawable/rounded_button_background"
-        android:contentDescription="Art"
-        android:layout_marginBottom="8dp"
-        android:elevation="4dp"
-        android:scaleType="centerInside"
-        android:adjustViewBounds="true" />
+            <ImageButton
+                android:id="@+id/scienceButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/science"
+                android:background="@drawable/rounded_button_background"
+                android:contentDescription="Science"
+                android:layout_marginBottom="8dp"
+                android:elevation="4dp"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Art"
-        android:textSize="14sp"
-        android:textColor="@android:color/white"
-        android:gravity="center" />
-</LinearLayout>
-</LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Science"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- ImageButton pour Culture -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <ImageButton
+                android:id="@+id/cultureButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/culture"
+                android:background="@drawable/rounded_button_background"
+                android:contentDescription="Culture"
+                android:layout_marginBottom="8dp"
+                android:elevation="4dp"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Culture"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <!-- ImageButton pour Art -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+
+            <ImageButton
+                android:id="@+id/artButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/art"
+                android:background="@drawable/rounded_button_background"
+                android:contentDescription="Art"
+                android:layout_marginBottom="8dp"
+                android:elevation="4dp"
+                android:scaleType="centerInside"
+                android:adjustViewBounds="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Art"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:gravity="center" />
+        </LinearLayout>
     </LinearLayout>
+</LinearLayout>

@@ -5,13 +5,10 @@
     <item
         android:id="@+id/menu_home"
         android:icon="@drawable/ic_home"
-    android:title="Accueil"
-    app:showAsAction="ifRoom" />
-
+    android:title="Accueil" />
     <item
         android:id="@+id/menu_logout"
         android:icon="@drawable/ic_logout"
-    android:title="Déconnecter"
-    app:showAsAction="ifRoom" />
+    android:title="Déconnecter" />
 
 </menu>

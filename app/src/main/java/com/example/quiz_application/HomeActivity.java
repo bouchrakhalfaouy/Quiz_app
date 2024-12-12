@@ -2,6 +2,7 @@ package com.example.quiz_application;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -15,6 +16,11 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         // Boutons des domaines
         scienceButton = findViewById(R.id.scienceButton);
@@ -39,9 +45,9 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(android.view.Menu menu) {
-        // Gonfler le menu (ajouter les options dans la barre d'outils)
-        getMenuInflater().inflate(R.menu.menu, menu); // Assurez-vous que le fichier XML existe
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflater le menu à partir du fichier XML
+        getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
