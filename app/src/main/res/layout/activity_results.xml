@@ -15,8 +15,7 @@
         app:cpb_background_progressbar_color="#D3D3D3"
         app:cpb_progressbar_color="#4CAF50"
         app:cpb_progressbar_width="10dp"
-        app:cpb_background_progressbar_width="10dp"
-        app:cpb_progress_direction="TO_RIGHT" />
+        app:cpb_background_progressbar_width="10dp" />
     <TextView
         android:id="@+id/scoreTextView"
         android:layout_width="wrap_content"
