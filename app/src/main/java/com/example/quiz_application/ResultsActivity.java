@@ -5,15 +5,16 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.mikhaellopez.circularprogressbar.CircularProgressBar; // Ajoutez cette importation
+
 public class ResultsActivity extends AppCompatActivity {
 
-    private ProgressBar circularProgressBar;
+    private CircularProgressBar circularProgressBar; // Remplacez ProgressBar par CircularProgressBar
     private TextView percentageTextView;
 
     @Override
@@ -23,7 +24,7 @@ public class ResultsActivity extends AppCompatActivity {
 
         // Initialisation des vues
         circularProgressBar = findViewById(R.id.circularProgressBar);
-        percentageTextView = findViewById(R.id.percentageTextView);
+        percentageTextView = findViewById(R.id.scoreTextView);
         Button exitButton = findViewById(R.id.exitButton);
 
         // Récupération du score via l'intent
@@ -35,7 +36,7 @@ public class ResultsActivity extends AppCompatActivity {
         int percentage = (int) ((score / (float) totalQuestions) * 100);
 
         // Mise à jour de la barre circulaire et du texte
-        circularProgressBar.setProgress(percentage);
+        circularProgressBar.setProgress(percentage); // Cette méthode met à jour la progression de la barre
         percentageTextView.setText(percentage + "%");
 
         // Gestion du bouton retour à l'accueil
