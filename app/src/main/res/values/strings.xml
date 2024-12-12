@@ -1,19 +1,31 @@
 <resources>
-    <string name="app_name">Application_Quiz</string>
-        <string name="score_label">Votre score :</string>
-        <string name="exit_button">Retour à l'accueil</string>
-        <string name="menu_home">Accueil</string>
-        <string name="menu_logout">Déconnexion</string>
+    <string name="app_name">Quiz Application</string>
+    <string name="enter_email_error">Veuillez entrer un e-mail</string>
+    <string name="enter_password_error">Veuillez entrer un mot de passe</string>
+    <string name="invalid_email_error">Veuillez entrer un e-mail valide</string>
+    <string name="invalid_credentials_toast">E-mail ou mot de passe incorrect</string>
+    <string name="welcome_toast">Bienvenue %1$s</string>
+    <string name="change_language">Langue changée à: </string>
 
     <string name="welcome_text">Bienvenu, apprenant et apprenante</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Mot de passe</string>
     <string name="login_button_text">Se connecter</string>
     <string name="create_account_text">Créer un compte</string>
-    <string name="enter_email_error">Veuillez entrer un e-mail</string>
-    <string name="enter_password_error">Veuillez entrer un mot de passe</string>
-    <string name="invalid_email_error">Veuillez entrer un e-mail valide</string>
-    <string name="invalid_credentials_toast">E-mail ou mot de passe incorrect</string>
-    <string name="welcome_toast">Bienvenue %1$s</string>
-    <string name="change_language">langue est changé en: </string>
+
+    <string name="welcome_message">Bienvenue dans application Quiz !</string>
+    <string name="quiz_description">Testez vos connaissances dans divers domaines ! choisissez un domaine !</string>
+    <string name="science">Science</string>
+    <string name="culture">Culture</string>
+    <string name="art">Art</string>
+
+
+
+
+
+    <string name="next">Suivant</string>
+    <string name="previous">Précédent</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="first_fragment_label">Premier Fragment</string>
+    <string name="second_fragment_label">Deuxième Fragment</string>
 </resources>

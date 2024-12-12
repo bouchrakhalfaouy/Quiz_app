@@ -1,21 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Quiz_Application</string>
-    <string name="score_label">Your score :</string>
-    <string name="exit_button">Back to Home</string>
-    <string name="menu_home">Home</string>
-    <string name="menu_logout">Logout</string>
-
-
-    <string name="welcome_text">Welcome, learner</string>
-    <string name="email_hint">Email</string>
-    <string name="password_hint">Password</string>
-    <string name="login_button_text">Log in</string>
-    <string name="create_account_text">Create an account</string>
+    <string name="app_name">Quiz Application</string>
     <string name="enter_email_error">Please enter an email</string>
     <string name="enter_password_error">Please enter a password</string>
     <string name="invalid_email_error">Please enter a valid email</string>
     <string name="invalid_credentials_toast">Incorrect email or password</string>
     <string name="welcome_toast">Welcome %1$s</string>
-    <string name="change_language">language was changed to :</string>
+    <string name="change_language">Language changed to </string>
+    <string name="welcome_text">Welcome, learner</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="login_button_text">Login</string>
+    <string name="create_account_text">Create an account</string>
+
+    <string name="welcome_message">Welcome to the Quiz App!</string>
+    <string name="quiz_description">Test your knowledge in various fields! Please choose a category!</string>
+    <string name="science">Science</string>
+    <string name="culture">Culture</string>
+    <string name="art">Art</string>
+
+
+
+
+
+
+
+
+
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
 </resources>
