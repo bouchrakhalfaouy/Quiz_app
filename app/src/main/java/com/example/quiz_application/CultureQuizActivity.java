@@ -12,9 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class CultureQuizActivity extends AppCompatActivity {
 
     private TextView questionTextView, timerTextView;
-    private Button option1Button, option2Button, option3Button, option4Button,logoutButton,homeButton;
-    private Button nextButton;
-
+    private Button option1Button, option2Button, option3Button, option4Button, nextButton;
     private int currentQuestionIndex = 0;
     private int score = 0;
 
@@ -44,7 +42,7 @@ public class CultureQuizActivity extends AppCompatActivity {
 
         // Initialiser les vues
         questionTextView = findViewById(R.id.questionTextView);
-        timerTextView = findViewById(R.id.timerTextView); // Ajouter un TextView pour le timer dans le layout XML
+        timerTextView = findViewById(R.id.timerTextView);
         option1Button = findViewById(R.id.option1Button);
         option2Button = findViewById(R.id.option2Button);
         option3Button = findViewById(R.id.option3Button);
@@ -62,7 +60,6 @@ public class CultureQuizActivity extends AppCompatActivity {
 
         // Passer à la question suivante
         nextButton.setOnClickListener(view -> moveToNextQuestion());
-
     }
 
     private void displayQuestion() {
@@ -79,6 +76,10 @@ public class CultureQuizActivity extends AppCompatActivity {
         option2Button.setText(currentQuestion.getOptions()[1]);
         option3Button.setText(currentQuestion.getOptions()[2]);
         option4Button.setText(currentQuestion.getOptions()[3]);
+
+        // Réinitialiser les couleurs des boutons avant d'afficher la question suivante
+        resetButtonColors();
+        enableAnswerButtons();
     }
 
     private void startTimer() {
@@ -103,24 +104,23 @@ public class CultureQuizActivity extends AppCompatActivity {
         }
 
         Question currentQuestion = questions[currentQuestionIndex];
-        Button selectedButton = null;
+        Button selectedButton = getButtonForOption(selectedOption);
 
         // Vérifier la bonne réponse
         if (selectedOption == currentQuestion.getCorrectAnswerIndex()) {
             score++; // Incrémenter le score si la réponse est correcte
             Toast.makeText(this, "Bonne réponse!", Toast.LENGTH_SHORT).show();
-            selectedButton = getButtonForOption(selectedOption);
             selectedButton.setBackgroundColor(getResources().getColor(R.color.green)); // Vert
         } else {
             Toast.makeText(this, "Mauvaise réponse. La bonne réponse est : " +
                     currentQuestion.getOptions()[currentQuestion.getCorrectAnswerIndex()], Toast.LENGTH_LONG).show();
-            selectedButton = getButtonForOption(selectedOption);
             selectedButton.setBackgroundColor(getResources().getColor(R.color.red)); // Rouge
 
             // Mettre en vert le bouton de la bonne réponse
             Button correctButton = getButtonForOption(currentQuestion.getCorrectAnswerIndex());
             correctButton.setBackgroundColor(getResources().getColor(R.color.green)); // Vert
         }
+
         // Désactiver les boutons après la réponse
         disableAnswerButtons();
     }
@@ -145,13 +145,15 @@ public class CultureQuizActivity extends AppCompatActivity {
             timer.cancel();
         }
 
-        // Réinitialiser les couleurs des boutons avant de passer à la question suivante
-        resetButtonColors();
-
-        currentQuestionIndex++;
-        enableAnswerButtons();
-        displayQuestion();
+        // Vérifier si le quiz est terminé
+        if (currentQuestionIndex < questions.length - 1) {
+            currentQuestionIndex++;
+            displayQuestion();
+        } else {
+            showResults(); // Si toutes les questions ont été répondues
+        }
     }
+
     private void resetButtonColors() {
         // Réinitialiser la couleur de fond des boutons à la couleur par défaut (transparente ou autre couleur)
         option1Button.setBackgroundColor(getResources().getColor(android.R.color.darker_gray)); // ou utilisez la couleur par défaut
@@ -161,22 +163,20 @@ public class CultureQuizActivity extends AppCompatActivity {
     }
 
     private void showResults() {
-        if (timer != null) {
-            timer.cancel();
-        }
-
         Intent intent = new Intent(CultureQuizActivity.this, ResultsActivity.class);
         intent.putExtra("score", score);
         intent.putExtra("totalQuestions", questions.length);
         startActivity(intent);
         finish();
     }
+
     private void disableAnswerButtons() {
         option1Button.setEnabled(false);
         option2Button.setEnabled(false);
         option3Button.setEnabled(false);
         option4Button.setEnabled(false);
     }
+
     private void enableAnswerButtons() {
         option1Button.setEnabled(true);
         option2Button.setEnabled(true);
@@ -200,7 +200,6 @@ public class CultureQuizActivity extends AppCompatActivity {
             finish();
             return true;
         } else if (item.getItemId() == R.id.menu_logout) {
-            // Action pour Déconnecter
             showToast("Déconnexion réussie");
             Intent intent = new Intent(CultureQuizActivity.this, LoginActivity.class);
             startActivity(intent);
@@ -209,6 +208,7 @@ public class CultureQuizActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }

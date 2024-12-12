@@ -12,9 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ArtQuizActivity extends AppCompatActivity {
 
     private TextView questionTextView, timerTextView;
-    private Button option1Button, option2Button, option3Button, option4Button,logoutButton,homeButton;
-    private Button nextButton;
-
+    private Button option1Button, option2Button, option3Button, option4Button, nextButton;
     private int currentQuestionIndex = 0;
     private int score = 0;
 
@@ -51,7 +49,6 @@ public class ArtQuizActivity extends AppCompatActivity {
         option4Button = findViewById(R.id.option4Button);
         nextButton = findViewById(R.id.nextButton);
 
-
         // Afficher la première question
         displayQuestion();
 
@@ -69,6 +66,12 @@ public class ArtQuizActivity extends AppCompatActivity {
         // Annuler le timer précédent s'il existe
         if (timer != null) {
             timer.cancel();
+        }
+
+        // Vérifier si le quiz est terminé
+        if (currentQuestionIndex >= questions.length) {
+            showResults();
+            return;
         }
 
         // Obtenez la question actuelle et affichez-la
@@ -105,24 +108,23 @@ public class ArtQuizActivity extends AppCompatActivity {
         }
 
         Question currentQuestion = questions[currentQuestionIndex];
-        Button selectedButton = null;
+        Button selectedButton = getButtonForOption(selectedOption);
 
         // Vérifier la bonne réponse
         if (selectedOption == currentQuestion.getCorrectAnswerIndex()) {
             score++; // Incrémenter le score si la réponse est correcte
             Toast.makeText(this, "Bonne réponse!", Toast.LENGTH_SHORT).show();
-            selectedButton = getButtonForOption(selectedOption);
             selectedButton.setBackgroundColor(getResources().getColor(R.color.green)); // Vert
         } else {
             Toast.makeText(this, "Mauvaise réponse. La bonne réponse est : " +
                     currentQuestion.getOptions()[currentQuestion.getCorrectAnswerIndex()], Toast.LENGTH_LONG).show();
-            selectedButton = getButtonForOption(selectedOption);
             selectedButton.setBackgroundColor(getResources().getColor(R.color.red)); // Rouge
 
             // Mettre en vert le bouton de la bonne réponse
             Button correctButton = getButtonForOption(currentQuestion.getCorrectAnswerIndex());
             correctButton.setBackgroundColor(getResources().getColor(R.color.green)); // Vert
         }
+
         // Désactiver les boutons après la réponse
         disableAnswerButtons();
     }
@@ -146,49 +148,65 @@ public class ArtQuizActivity extends AppCompatActivity {
         if (timer != null) {
             timer.cancel();
         }
+
         // Réinitialiser les couleurs des boutons avant de passer à la question suivante
         resetButtonColors();
 
         currentQuestionIndex++;
-        enableAnswerButtons();
-        displayQuestion();
+
+        // Vérifier si toutes les questions ont été posées
+        if (currentQuestionIndex < questions.length) {
+            enableAnswerButtons();
+            displayQuestion();
+        } else {
+            showResults(); // Fin du quiz, afficher les résultats
+        }
     }
+
     private void resetButtonColors() {
         // Réinitialiser la couleur de fond des boutons à la couleur par défaut (transparente ou autre couleur)
-        option1Button.setBackgroundColor(getResources().getColor(android.R.color.darker_gray)); // ou utilisez la couleur par défaut
+        option1Button.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
         option2Button.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
         option3Button.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
         option4Button.setBackgroundColor(getResources().getColor(android.R.color.darker_gray));
     }
+
     private void disableAnswerButtons() {
         option1Button.setEnabled(false);
         option2Button.setEnabled(false);
         option3Button.setEnabled(false);
         option4Button.setEnabled(false);
     }
+
     private void enableAnswerButtons() {
         option1Button.setEnabled(true);
         option2Button.setEnabled(true);
         option3Button.setEnabled(true);
         option4Button.setEnabled(true);
     }
+
+    private void showResults() {
+        Intent intent = new Intent(ArtQuizActivity.this, ResultsActivity.class);
+        intent.putExtra("score", score);
+        intent.putExtra("totalQuestions", questions.length);
+        startActivity(intent);
+        finish();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflater le menu à partir du fichier XML
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(android.view.MenuItem item) {
-        // Gérer les clics sur les options du menu
         if (item.getItemId() == R.id.menu_home) {
             Intent intent = new Intent(ArtQuizActivity.this, HomeActivity.class);
             startActivity(intent);
             finish();
             return true;
         } else if (item.getItemId() == R.id.menu_logout) {
-            // Action pour Déconnecter
             showToast("Déconnexion réussie");
             Intent intent = new Intent(ArtQuizActivity.this, LoginActivity.class);
             startActivity(intent);
@@ -197,6 +215,7 @@ public class ArtQuizActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
