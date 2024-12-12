@@ -19,6 +19,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
             finish(); // Terminer l'activité Splash pour qu'elle ne soit pas réaffichée en arrière-plan
-        }, 10000); // 10 secondes
+        }, 5000); // 10 secondes
     }
 }

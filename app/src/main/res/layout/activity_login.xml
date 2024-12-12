@@ -2,41 +2,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/backimage"
     android:padding="16dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Connexion"
+        android:text="Bienvenu,apprenant et apprenante"
         android:textSize="24sp"
-        android:layout_marginBottom="16dp" />
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="16dp"
+        android:textStyle="bold" />
+
 
     <EditText
         android:id="@+id/emailEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:background="@drawable/input_background"
+        android:padding="12dp"
+        android:layout_marginBottom="8dp" />
 
     <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Mot de passe"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:background="@drawable/input_background"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp" />
+    <!-- Bouton Connexion -->
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="142dp"
-        android:layout_height="41dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:backgroundTint="#E91E63"
-        android:text="Se connecter" />
+        android:text="Se connecter"
+        android:textColor="@android:color/white"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp" />
 
     <TextView
         android:id="@+id/registerTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Créer un compte"
-        android:textColor="#0000FF"
+        android:textColor="#FFEB3B"
+        android:textStyle="bold"
         android:paddingTop="16dp"
         android:clickable="true"
         android:focusable="true" />
